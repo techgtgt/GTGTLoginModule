@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">LoginModule</string>
+
+
+    <string name="enter_mobile_number_txt">Enter your Mobile number</string>
+    <string name="pwd_setting_instruction_txt">*Note: Password must be a minimum of 8 characters, uppercase and lowercase letters</string>
+
+    <string name="server_error">Looks like we\'re having\nsome server issues\n\nPlease check back soon</string>
+    <string name="internet_error">Check your mobile data or\nWIFI connection</string>
+
+    <string name="no_internet_connection">No Internet Connection</string>
+
+    <string name="invalid_password">Please make sure password contains at least 1 uppercase letter, 1 lower case letter, 1 special character1 number</string>
+
+    <string name="facebook_app_id">441818346858585</string>
+    <string name="fb_login_protocol_scheme">fb441818346858585</string>
+
+
+</resources>

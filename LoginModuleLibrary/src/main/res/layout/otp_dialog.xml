@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_otp_activity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@drawable/login_background"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/size_28dp"
+    android:paddingEnd="@dimen/size_28dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_previous_otp_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10dp"
+            android:padding="@dimen/size_10dp"
+            android:text="Previous"
+            android:textColor="@color/dull_color"
+            android:textSize="@dimen/text_12sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/size_18dp"
+            android:fontFamily="@font/proxima_nova_semibold"
+            android:text="User Login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14sp" />
+
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_mobile_num"
+        tools:text="7981519822"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/size_24dp"
+        android:background="@drawable/et_bg_dull"
+        android:drawableStart="@drawable/ic_phone_icon_with_green_bg"
+        android:drawablePadding="@dimen/size_12dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size_20dp"
+        android:text="OTP"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14sp" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/otp_box"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size_10dp"
+        android:cursorVisible="true"
+        android:inputType="number"
+        android:itemBackground="@drawable/et_bg_dull"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_24sp"
+        app:cursorColor="@color/white"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="true"
+        app:itemCount="4"
+        app:itemHeight="44dp"
+        app:itemRadius="5dp"
+        app:itemSpacing="@dimen/size_16dp"
+        app:itemWidth="@dimen/size_36dp"
+        app:lineColor="@color/white"
+        app:viewType="none" />
+
+    <TextView
+        android:id="@+id/tv_resend_otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size_16dp"
+        android:text="Resend OTP"
+        android:textColor="@android:color/white" />
+
+
+    <Button
+        android:id="@+id/btn_verify_otp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginTop="@dimen/size_24dp"
+        android:background="@drawable/green_button"
+        android:text="Verify"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_14sp" />
+
+    <ImageView
+        android:id="@+id/iv_super_lit_logo_otp_verification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size_16dp"
+        android:layout_marginBottom="@dimen/size_12dp"
+        android:src="@drawable/ic_superlit_apps_logo" />
+
+
+
+
+</LinearLayout>
+
+
+
+
+

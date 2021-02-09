@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_registration"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@drawable/login_background"
+    android:orientation="vertical"
+    android:paddingStart="28dp"
+    android:paddingEnd="28dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_skip_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/proximanova_regular"
+            android:padding="10dp"
+            android:text="Skip"
+            android:textColor="@color/dull_color"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/size_16dp"
+            android:layout_marginBottom="@dimen/size_20dp"
+            android:fontFamily="@font/proxima_nova_semibold"
+            android:text="User Login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14sp" />
+
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fb_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_40dp"
+        android:background="@drawable/facebook_btn_border">
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_facebook_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/facebook_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/proximanova_regular"
+            android:text="Facebook"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_14sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/btn_google_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginTop="@dimen/size_12dp"
+        android:background="@drawable/google_btn_border">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_google_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/proximanova_regular"
+            android:text="Sign in with Google"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_14sp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size_20dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="82dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/dull_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3.5dp"
+            android:layout_marginEnd="3.5dp"
+            android:text="or"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_14sp" />
+
+        <View
+            android:layout_width="82dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/dull_color" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_et_mob_num"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/size_20dp"
+        android:background="@drawable/et_bg_dull">
+
+        <EditText
+            android:id="@+id/et_enter_mobile_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_phone_icon_green"
+            android:drawablePadding="@dimen/size_12dp"
+            android:hint="@string/enter_mobile_number_txt"
+            android:inputType="number"
+            android:maxLength="10"
+            android:paddingStart="@dimen/size_14dp"
+            android:paddingBottom="@dimen/size_12dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/dull_color"
+            android:textSize="@dimen/text_14sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/btn_go_nxt"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/green_button_right_radius"
+            android:scaleType="center"
+            android:src="@drawable/ic_next">
+
+
+        </ImageView>
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_proceed_as_guest"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginTop="@dimen/size_16dp"
+        android:background="@drawable/black_btn"
+        android:elevation="@dimen/size_4dp"
+        android:text="Proceed as guest"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_14sp" />
+
+
+    <Button
+        android:id="@+id/btn_proceed"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_marginTop="@dimen/size_24dp"
+        android:layout_marginBottom="@dimen/size_20dp"
+        android:background="@drawable/superlit_btn_bg_gradient"
+        android:elevation="@dimen/size_4dp"
+        android:text="Proceed"
+        android:visibility="gone"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_14sp" />
+
+    <ImageView
+        android:id="@+id/iv_super_lit_logo_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/size_16dp"
+        android:layout_marginBottom="@dimen/size_12dp"
+        android:src="@drawable/ic_superlit_apps_logo" />
+
+
+
+
+</LinearLayout>
+
+
+
+
