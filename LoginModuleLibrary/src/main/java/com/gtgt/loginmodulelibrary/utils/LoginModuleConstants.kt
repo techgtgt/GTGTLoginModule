@@ -5,7 +5,7 @@ object LoginModuleConstants {
     const val PRODUCT_NAME = "RUMMYJACKS"
 
 
-    const val HEADER_PRODUCT_NAME = "SUPERLIT_RUMMYJACKS"
+    var HEADER_PRODUCT_NAME = "SUPERLIT_RUMMYJACKS"
 
     //request codes for different screens
     const val LOGIN_MODEL_REQUEST_CODE = 100

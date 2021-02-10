@@ -9,10 +9,7 @@ import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.gtgt.loginmodulelibrary.R
-import com.gtgt.loginmodulelibrary.utils.LoginModuleConstants
-import com.gtgt.loginmodulelibrary.utils.makeTextUnderline
-import com.gtgt.loginmodulelibrary.utils.onOneClick
-import com.gtgt.loginmodulelibrary.utils.showSnack
+import com.gtgt.loginmodulelibrary.utils.*
 import kotlinx.android.synthetic.main.otp_dialog.view.*
 
 class OtpVerificationPopup(var activity: Activity) {
@@ -46,7 +43,7 @@ class OtpVerificationPopup(var activity: Activity) {
         }
 
 
-        dialogView.tv_mobile_num.text = mobileNum
+        dialogView.tv_entered_mob_num.text = mobileNum
 
         dialogView.btn_verify_otp.onOneClick {
             val otp = dialogView.otp_box.text.toString()
@@ -68,17 +65,19 @@ class OtpVerificationPopup(var activity: Activity) {
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun loadSuperLitDialog(dialogView: View) {
         dialogView.ll_otp_activity.background = activity.getDrawable(R.drawable.superlit_login_bg)
-        dialogView.tv_previous_otp_screen.setBackgroundColor(Color.parseColor("#b95c1f"))
-        dialogView.tv_mobile_num.background = activity.getDrawable(R.drawable.superlit_et_bg)
-        dialogView.tv_mobile_num.setCompoundDrawablesWithIntrinsicBounds(
-            R.drawable.ic_phone_superlit,
-            0,
-            0,
-            0
-        )
+        dialogView.tv_previous_otp_screen.setTextColor(Color.parseColor("#b95c1f"))
+        dialogView.rl_entered_mobile_num.background =
+            activity.getDrawable(R.drawable.superlit_et_bg)
+        dialogView.iv_phone_icon.apply {
+            setImageResource(R.drawable.ic_phone_superlit)
+            margins(12, 0, 0, 0)
+        }
 
-        dialogView.btn_verify_otp.background =
-            activity.getDrawable(R.drawable.superlit_btn_bg_gradient)
+        dialogView.btn_verify_otp.apply {
+            background =
+                activity.getDrawable(R.drawable.superlit_btn_bg_gradient)
+            margins(0, 0, 0, 20)
+        }
 
         dialogView.iv_super_lit_logo_otp_verification.visibility = View.GONE
     }

@@ -13,6 +13,7 @@ import android.os.Looper
 import android.provider.Settings
 import android.telephony.TelephonyManager
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
@@ -418,7 +419,7 @@ fun <T> Call<T>.execute(
 
         } catch (e: SocketTimeoutException) {
 
-            ShowNetworkErrDialog(activity as Activity).networkErrorDialog (){
+            ShowNetworkErrDialog(activity as Activity).networkErrorDialog() {
 
                 Handler().postDelayed({
                     execute(activity, showLoading, callback)
@@ -428,7 +429,7 @@ fun <T> Call<T>.execute(
 
 
         } catch (e: SSLHandshakeException) {
-            ShowNetworkErrDialog(activity as Activity).networkErrorDialog (){
+            ShowNetworkErrDialog(activity as Activity).networkErrorDialog() {
 
                 Handler().postDelayed({
                     execute(activity, showLoading, callback)
@@ -436,7 +437,7 @@ fun <T> Call<T>.execute(
                 }, 200)
             }
         } catch (e: SSLException) {
-            ShowNetworkErrDialog(activity as Activity).networkErrorDialog (){
+            ShowNetworkErrDialog(activity as Activity).networkErrorDialog() {
 
                 Handler().postDelayed({
                     execute(activity, showLoading, callback)
@@ -444,7 +445,7 @@ fun <T> Call<T>.execute(
                 }, 200)
             }
         } catch (e: UnknownHostException) {
-            ShowNetworkErrDialog(activity as Activity).networkErrorDialog (){
+            ShowNetworkErrDialog(activity as Activity).networkErrorDialog() {
 
                 Handler().postDelayed({
                     execute(activity, showLoading, callback)
@@ -452,7 +453,7 @@ fun <T> Call<T>.execute(
                 }, 200)
             }
         } catch (e: ConnectException) {
-            ShowNetworkErrDialog(activity as Activity).networkErrorDialog (){
+            ShowNetworkErrDialog(activity as Activity).networkErrorDialog() {
 
                 Handler().postDelayed({
                     execute(activity, showLoading, callback)
@@ -544,6 +545,30 @@ fun log(tag: String, message: String = "__") {
     }
 }
 
+fun View.convertToDp(value: Int): Int {
+
+    return TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP, value.toFloat(), resources
+            .displayMetrics
+    ).toInt()
+}
+
+
+fun View.margins(left: Int = 0, top: Int = 0, right: Int = 0, bottom: Int = 0): View {
+
+
+    if (layoutParams is ViewGroup.MarginLayoutParams) {
+        val p = layoutParams as ViewGroup.MarginLayoutParams
+        p.setMargins(
+            this.convertToDp(left),
+            this.convertToDp(top),
+            this.convertToDp(right),
+            this.convertToDp(bottom)
+        )
+        requestLayout()
+    }
+    return this
+}
 
 
 

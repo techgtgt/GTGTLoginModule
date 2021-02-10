@@ -10,7 +10,6 @@ import com.gtgt.loginmodulelibrary.loginmodule.view.RegistrationActivity
 import com.gtgt.loginmodulelibrary.utils.LoginModuleConstants
 import com.gtgt.loginmodulelibrary.utils.launchActivity
 import com.gtgt.loginmodulelibrary.utils.onOneClick
-import com.gtgt.loginmodulelibrary.utils.putString
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,14 +17,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        LoginModuleBaseViewModel.productName = "SUPERLIT"
 
-        btn_login.onOneClick {
+
+        btn_login_sl.onOneClick {
+            LoginModuleBaseViewModel.productName = "SUPERLIT"
+            LoginModuleConstants.HEADER_PRODUCT_NAME = ""
             launchActivity<RegistrationActivity>(
                 LoginModuleConstants.LOGIN_MODEL_REQUEST_CODE
             ) {
                 putExtra("PRODUCT_TYPE", LoginModuleConstants.ProductName.superLit.type)
-                putString("PRODUCT_NAME", "SUPERLIT")
+            }
+        }
+
+        btn_login_rj.onOneClick {
+            LoginModuleBaseViewModel.productName = "RUMMYJACKS"
+            launchActivity<RegistrationActivity>(
+                LoginModuleConstants.LOGIN_MODEL_REQUEST_CODE
+            ) {
+                putExtra("PRODUCT_TYPE", LoginModuleConstants.ProductName.rummyJacks.type)
             }
         }
     }

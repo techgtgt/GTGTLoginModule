@@ -1,6 +1,7 @@
 package com.gtgt.loginmodulelibrary.utils
 
 import android.app.Activity
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Handler
 import android.view.View
@@ -33,7 +34,12 @@ class LoginModuleProgressBarHandler(private val activity: Activity) {
                 )
 
                 view = activity.layoutInflater.inflate(R.layout.progressbar, null)
-                view.progress_bar.setBackgroundColor(Color.parseColor(progressBarColor))
+                view.progress_bar.indeterminateTintList = ColorStateList.valueOf(
+                    Color.parseColor(
+                        progressBarColor
+                    )
+                )
+
                 layout.addView(view)
                 view.visibility = View.VISIBLE
             } catch (e: java.lang.Exception) {

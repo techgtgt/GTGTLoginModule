@@ -6,10 +6,10 @@ import android.graphics.Color
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.gtgt.loginmodulelibrary.R
 import com.gtgt.loginmodulelibrary.utils.*
-import kotlinx.android.synthetic.main.otp_dialog.view.*
 import kotlinx.android.synthetic.main.set_password_dialog.view.*
 
 class SetPasswordPopup(
@@ -93,17 +93,25 @@ class SetPasswordPopup(
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun loadSuperLitDialog(dialogView: View) {
         dialogView.ll_set_pwd.background = activity.getDrawable(R.drawable.superlit_login_bg)
-        dialogView.tv_skip_pwd.setBackgroundColor(Color.parseColor("#b95c1f"))
+        dialogView.tv_skip_pwd.setTextColor(Color.parseColor("#b95c1f"))
         dialogView.rl_set_pwd.background = activity.getDrawable(R.drawable.superlit_et_bg)
-        dialogView.iv_key_set_pwd.setImageResource(R.drawable.ic_password_key_superlit)
+        dialogView.iv_key_set_pwd.apply {
+            setImageResource(R.drawable.ic_password_key_superlit)
+            margins(12, 0, 0, 0)
+        }
         dialogView.et_set_pwd.setHintTextColor(Color.parseColor("#796b6b"))
         dialogView.rl_confirm_pwd.background = activity.getDrawable(R.drawable.superlit_et_bg)
         dialogView.et_confirm_pwd.setHintTextColor(Color.parseColor("#796b6b"))
-        dialogView.iv_key_confirm_pwd.setImageResource(R.drawable.ic_password_key_superlit)
-        dialogView.btn_verify_otp.background =
+        dialogView.iv_key_confirm_pwd.apply {
+            setImageResource(R.drawable.ic_password_key_superlit)
+            margins(12, 0, 0, 0)
+        }
+        dialogView.btn_set_pwd.background =
             activity.getDrawable(R.drawable.superlit_btn_bg_gradient)
+        dialogView.iv_reveal_set_pwd.setImageResource(R.drawable.ic_hide_pin_superlit)
+        dialogView.iv_reveal_confirm_pwd.setImageResource(R.drawable.ic_hide_pin_superlit)
 
-        dialogView.iv_super_lit_logo_set_pwd.visibility = View.GONE
+        dialogView.iv_super_lit_logo_set_pwd.visibility = GONE
     }
 
 

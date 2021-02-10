@@ -36,6 +36,8 @@ class EnterPasswordPopup(
 
         dialogView.tv_previous.makeTextUnderline()
 
+        dialogView.tv_entered_mobile_num.text = mobileNum
+
         if (productType == LoginModuleConstants.ProductName.superLit.type) {
             loadSuperLitDialog(dialogView)
         }
@@ -117,24 +119,29 @@ class EnterPasswordPopup(
     private fun loadSuperLitDialog(dialogView: View) {
         dialogView.ll_enter_pwd.background = activity.getDrawable(R.drawable.superlit_login_bg)
         dialogView.tv_previous.setTextColor(Color.parseColor("#b95c1f"))
-        dialogView.et_entered_mobile_num.apply {
-            background = activity.getDrawable(R.drawable.superlit_et_bg)
-            setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_phone_superlit,
-                0,
-                0,
-                0
-            )
+        dialogView.rl_entered_mob_num.background = activity.getDrawable(R.drawable.superlit_et_bg)
+
+        dialogView.iv_phone.apply {
+            setImageResource(R.drawable.ic_phone_superlit)
+            margins(12, 0, 0, 0)
         }
+
         dialogView.rl_enter_pwd.background = activity.getDrawable(R.drawable.superlit_et_bg)
-        dialogView.iv_key.setImageResource(R.drawable.ic_password_key_superlit)
+        dialogView.iv_key.apply {
+            setImageResource(R.drawable.ic_password_key_superlit)
+            margins(12, 0, 0, 0)
+
+        }
         dialogView.iv_reveal_pwd.setImageResource(R.drawable.ic_hide_pin_superlit)
         dialogView.et_user_pwd.setHintTextColor(Color.parseColor("#796b6b"))
         dialogView.tv_forgot_pwd.setTextColor(Color.parseColor("#ff9124"))
         dialogView.btn_login.background = activity.getDrawable(R.drawable.superlit_btn_bg_gradient)
         dialogView.or_left_line.setBackgroundColor(Color.parseColor("#ff9124"))
         dialogView.or_right_line.setBackgroundColor(Color.parseColor("#ff9124"))
-        dialogView.tv_login_with_otp.setTextColor(Color.parseColor("#ff9124"))
+        dialogView.tv_login_with_otp.apply {
+            setTextColor(Color.parseColor("#ff9124"))
+            margins(0, 0, 0, 24)
+        }
         dialogView.iv_super_lit_logo_enter_pwd.visibility = View.GONE
     }
 
