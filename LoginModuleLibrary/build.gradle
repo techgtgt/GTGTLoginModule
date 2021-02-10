@@ -101,7 +101,7 @@ afterEvaluate {
         publications {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
-                from components.all {}
+//                from components.all {}
                 groupId = 'com.github.techgtgt'
                 artifactId = 'gtgt-loginmodule'
                 version = '1.0'
