@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loginmodule.R
+import com.gtgt.loginmodulelibrary.base.LoginModuleBaseActivity
 import com.gtgt.loginmodulelibrary.base.LoginModuleBaseViewModel
 import com.gtgt.loginmodulelibrary.loginmodule.view.RegistrationActivity
 import com.gtgt.loginmodulelibrary.utils.LoginModuleConstants
@@ -22,20 +23,17 @@ class MainActivity : AppCompatActivity() {
         btn_login_sl.onOneClick {
             LoginModuleBaseViewModel.productName = "SUPERLIT"
             LoginModuleConstants.HEADER_PRODUCT_NAME = ""
-            launchActivity<RegistrationActivity>(
-                LoginModuleConstants.LOGIN_MODEL_REQUEST_CODE
-            ) {
-                putExtra("PRODUCT_TYPE", LoginModuleConstants.ProductName.superLit.type)
-            }
+            LoginModuleBaseActivity.productType = LoginModuleConstants.ProductName.superLit.type
+            launchActivity<RegistrationActivity>(LoginModuleConstants.LOGIN_MODEL_REQUEST_CODE)
+
         }
 
         btn_login_rj.onOneClick {
             LoginModuleBaseViewModel.productName = "RUMMYJACKS"
+            LoginModuleBaseActivity.productType = LoginModuleConstants.ProductName.superLit.type
             launchActivity<RegistrationActivity>(
                 LoginModuleConstants.LOGIN_MODEL_REQUEST_CODE
-            ) {
-                putExtra("PRODUCT_TYPE", LoginModuleConstants.ProductName.rummyJacks.type)
-            }
+            )
         }
     }
 

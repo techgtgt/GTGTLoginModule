@@ -20,7 +20,7 @@ import com.gtgt.loginmodulelibrary.utils.*
 
 class RegistrationActivity : LoginModuleBaseActivity() {
 
-    private val productType by lazy { intent.getStringExtra("PRODUCT_TYPE") ?: "" }
+//    private val productType by lazy { intent.getStringExtra("PRODUCT_TYPE") ?: "" }
 
     var resultIntent = Intent()
 

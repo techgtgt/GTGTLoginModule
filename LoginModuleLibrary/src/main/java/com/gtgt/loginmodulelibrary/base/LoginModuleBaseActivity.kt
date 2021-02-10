@@ -220,6 +220,7 @@ abstract class LoginModuleBaseActivity : AppCompatActivity(), KodeinAware {
 
     companion object {
         var productName: String = ""
+        var productType: String = ""
     }
 
 
