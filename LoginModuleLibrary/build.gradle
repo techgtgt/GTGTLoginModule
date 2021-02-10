@@ -1,10 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group 'com.github.techgtgt'
-version='1.0'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 30
@@ -47,6 +44,7 @@ android {
             buildConfigField "String", "HOME_URL_PLATFORM", "\"http://65.0.96.109:8000/\""
         }
     }
+
 
 
 }
@@ -96,4 +94,18 @@ dependencies {
     //for vita
     implementation 'com.androidisland.arch:vita:0.1.0'
 
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.all {}
+                groupId = 'com.github.techgtgt'
+                artifactId = 'gtgt-loginmodule'
+                version = '1.0'
+            }
+        }
+    }
 }
