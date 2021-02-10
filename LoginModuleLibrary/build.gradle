@@ -100,13 +100,28 @@ dependencies {
 
 }
 
+// Because the components are created only during the afterEvaluate phase, you must
+// configure your publications using the afterEvaluate() lifecycle method.
 afterEvaluate {
     publishing {
         publications {
             // Creates a Maven publication called "release".
-            maven(MavenPublication) {
-                groupId = 'com.github.techgtgt'
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.productionRelease
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.gtgt.loginmodule'
                 artifactId = 'final'
+                version = '1.0'
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.stageDebug
+
+                groupId = 'com.gtgt.loginmodule'
+                artifactId = 'final-debug'
                 version = '1.0'
             }
         }
