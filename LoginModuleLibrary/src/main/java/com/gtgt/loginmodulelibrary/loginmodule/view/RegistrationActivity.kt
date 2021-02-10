@@ -238,12 +238,6 @@ class RegistrationActivity : LoginModuleBaseActivity() {
     }
 
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
-    }
-
-
     private fun callCreateUserByMobileApi(mobileNum: String) {
         if (mobileNum.isNotEmpty()) {
             if (mobileNum.isValidPhoneNumber()) {

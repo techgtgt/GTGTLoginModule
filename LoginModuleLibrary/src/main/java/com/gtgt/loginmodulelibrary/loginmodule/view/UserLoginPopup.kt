@@ -39,8 +39,6 @@ class UserLoginPopup(
 
         if (productType == LoginModuleConstants.ProductName.superLit.type) {
             loadSuperLitDialog(dialogView)
-        } else {
-//            loadRummyJacksDialog(dialogView)
         }
 
         bottomSheetLogin = BottomSheetDialog(activity, R.style.SheetDialog)
