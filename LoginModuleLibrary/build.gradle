@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group 'com.gtgt'
+group 'com.github.techgtgt'
 version='1.0'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'

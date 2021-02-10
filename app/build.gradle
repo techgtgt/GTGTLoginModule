@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.loginmodule"
+        applicationId "com.gtgt.loginmodule"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
