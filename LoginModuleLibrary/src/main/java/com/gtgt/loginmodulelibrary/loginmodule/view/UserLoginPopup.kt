@@ -23,6 +23,8 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.login_dialog.view.*
 
+//to invoke user login popup
+
 class UserLoginPopup(
     var activity: Activity
 ) {
