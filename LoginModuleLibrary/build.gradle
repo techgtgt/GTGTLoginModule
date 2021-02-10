@@ -1,7 +1,10 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group 'com.gtgt'
+version='1.0'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-//apply plugin: 'maven-publish'
+
 
 android {
     compileSdkVersion 30
@@ -45,31 +48,6 @@ android {
         }
     }
 
-//    afterEvaluate {
-//        publishing {
-//            publications {
-//                // Creates a Maven publication called "release".
-//                release(MavenPublication) {
-//                    // Applies the component for the release build variant.
-////                    from components.release
-//
-//                    // You can then customize attributes of the publication as shown below.
-//                    groupId = 'com.gtgt.LoginModuleLibrary'
-//                    artifactId = 'final'
-//                    version = '1.0'
-//                }
-//                // Creates a Maven publication called “debug”.
-//                debug(MavenPublication) {
-//                    // Applies the component for the debug build variant.
-////                    from components.debug
-//
-//                    groupId = 'com.gtgt.LoginModuleLibrary'
-//                    artifactId = 'final-debug'
-//                    version = '1.0'
-//                }
-//            }
-//        }
-//    }
 
 }
 
