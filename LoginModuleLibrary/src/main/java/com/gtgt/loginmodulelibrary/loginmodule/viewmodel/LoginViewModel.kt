@@ -26,16 +26,14 @@ class UserLoginViewModel : LoginModuleBaseViewModel() {
             apiServicesPlatform.handleFacebookLogin(data)
         }.execute(activity, true) {
             if (it.success) {
+
+
                 putModel("loginInfo", it.info)
                 putString("loginMode", "Social")
                 putString("USER_ID", it.info.user_unique_id)
                 putBoolean(LoginModuleConstants.IS_USR_LOGGED_IN, true)
 
-                activity?.apply {
 
-//                    activity?.showToast("Successfully Logged in using $type")
-
-                }
 
                 _socialLoginDone.value = type
             } else {

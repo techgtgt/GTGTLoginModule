@@ -1,6 +1,5 @@
 package com.gtgt.loginmodulelibrary.loginmodule.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.FrameLayout
@@ -149,6 +148,14 @@ class RegistrationActivity : LoginModuleBaseActivity() {
             }
         })
 
+        regViewModel.socialLoginDone.observe(this, Observer {
+            if (it == LoginModuleConstants.SocialLoginTypes.FACEBOOK.type) {
+                setResult(LoginModuleConstants.FACEBOOK_LOGIN_REQUEST_CODE)
+            } else {
+                setResult(LoginModuleConstants.GOOGLE_LOGIN_REQUEST_CODE)
+            }
+        })
+
         enterPasswordViewModel.loginModel.observe(this, Observer {
             if (it.success) {
                 putModel("loginInfo", it.info)
@@ -267,6 +274,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
         )
     }
 
+
     private fun onPasswordChangeSuccess(setPasswordModel: SetPasswordModel) {
         if (setPasswordModel.success) {
             if (setPasswordModel.info["token"].isJsonNull) {
@@ -285,6 +293,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
         }
 
     }
+
 
 }
 

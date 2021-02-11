@@ -152,7 +152,7 @@ abstract class LoginModuleBaseActivity : AppCompatActivity(), KodeinAware {
     }
 
     fun googleSignIn() {
-        val signInIntent = googleSignInClient?.signInIntent
+        val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, google_sign_in_req_code)
     }
 

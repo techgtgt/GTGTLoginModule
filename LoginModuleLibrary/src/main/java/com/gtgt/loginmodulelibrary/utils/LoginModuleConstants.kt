@@ -9,6 +9,8 @@ object LoginModuleConstants {
 
     //request codes for different screens
     const val LOGIN_MODEL_REQUEST_CODE = 100
+    const val FACEBOOK_LOGIN_REQUEST_CODE = 200
+    const val GOOGLE_LOGIN_REQUEST_CODE = 300
 
     //shared prefs names
     const val IS_USR_LOGGED_IN = "IS_USER_LOGGED_IN"
@@ -18,10 +20,6 @@ object LoginModuleConstants {
         FACEBOOK("facebook"),
     }
 
-    enum class Screen(val type: String) {
-        SET_PWD_SCREEN("SETPWD"),
-        HOME_SCREEN("HOMEACTIVITY")
-    }
 
     enum class ProductName(val type: String) {
         rummyJacks("RUMMYJACKS"),
