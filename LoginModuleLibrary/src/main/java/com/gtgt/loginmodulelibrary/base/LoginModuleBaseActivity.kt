@@ -27,7 +27,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import java.util.*
 
-var currentActivity: AppCompatActivity? = null
+lateinit var currentActivity: AppCompatActivity
 
 abstract class LoginModuleBaseActivity : AppCompatActivity(), KodeinAware {
     override val kodein by kodein(LoginModuleApplication.appContext!!)
@@ -35,8 +35,8 @@ abstract class LoginModuleBaseActivity : AppCompatActivity(), KodeinAware {
 
     private val google_sign_in_req_code = 0//google sign in request code
 
-    private var googleSignInClient: GoogleSignInClient? = null//google sign in client
-    private var callbackManager: CallbackManager? = null
+    private lateinit var googleSignInClient: GoogleSignInClient //google sign in client
+    private lateinit var callbackManager: CallbackManager
 
     private val regViewModel: UserLoginViewModel by viewModel()
 
@@ -52,7 +52,7 @@ abstract class LoginModuleBaseActivity : AppCompatActivity(), KodeinAware {
             .requestProfile()
             .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
+        var googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         //configure facebook login
         callbackManager = CallbackManager.Factory.create()

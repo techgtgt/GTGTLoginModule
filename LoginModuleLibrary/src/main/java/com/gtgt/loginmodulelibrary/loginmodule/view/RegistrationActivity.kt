@@ -40,6 +40,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
         setContentView(R.layout.activity_registration)
 
         initUi()
+        log("debug1","came here ")
 
         UserLoginPopup(this).showUserLoginDialog(productType, { mobileNum, bottomSheetBehaviour ->
             loginBottomSheetBehavior = bottomSheetBehaviour
