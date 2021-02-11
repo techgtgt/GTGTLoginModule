@@ -31,7 +31,7 @@ import java.util.*
 lateinit var currentActivity: AppCompatActivity
 
 abstract class LoginModuleBaseActivity : AppCompatActivity(), KodeinAware {
-    override val kodein by kodein(myApplicationContext)
+    override val kodein by kodein(LoginModuleApplication.appContext!!)
 
     private val google_sign_in_req_code = 0//google sign in request code
 
@@ -221,7 +221,6 @@ abstract class LoginModuleBaseActivity : AppCompatActivity(), KodeinAware {
     companion object {
         var productName: String = ""
         var productType: String = ""
-        lateinit var myApplicationContext: Context
     }
 
 
