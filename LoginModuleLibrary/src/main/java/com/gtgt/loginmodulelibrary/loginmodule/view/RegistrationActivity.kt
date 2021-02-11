@@ -149,11 +149,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
         })
 
         regViewModel.socialLoginDone.observe(this, Observer {
-            if (it == LoginModuleConstants.SocialLoginTypes.FACEBOOK.type) {
-                setResult(LoginModuleConstants.FACEBOOK_LOGIN_REQUEST_CODE)
-            } else {
-                setResult(LoginModuleConstants.GOOGLE_LOGIN_REQUEST_CODE)
-            }
+            setResult(LoginModuleConstants.LOGIN_MODEL_REQUEST_CODE)
         })
 
         enterPasswordViewModel.loginModel.observe(this, Observer {
