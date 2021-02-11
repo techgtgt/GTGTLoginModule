@@ -9,7 +9,7 @@ import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
 abstract class LoginModuleBaseViewModel : ViewModel(), KodeinAware {
-    override val kodein by kodein(LoginModuleApplication.appContext!!)
+    override val kodein by kodein(myApplicationContext)
 
     var activity: LoginModuleBaseActivity? = null
     var context: Context? = null
@@ -17,6 +17,7 @@ abstract class LoginModuleBaseViewModel : ViewModel(), KodeinAware {
 
     companion object {
         var productName: String = ""
+        lateinit var myApplicationContext: Context
     }
 
 }
