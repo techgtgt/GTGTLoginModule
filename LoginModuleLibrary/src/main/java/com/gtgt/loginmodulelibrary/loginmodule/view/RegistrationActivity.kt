@@ -22,7 +22,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
 
 //    private val productType by lazy { intent.getStringExtra("PRODUCT_TYPE") ?: "" }
 
-    var resultIntent = Intent()
+//    var resultIntent = Intent()
 
     private val regViewModel: UserLoginViewModel by viewModel()
     private val enterPasswordViewModel: EnterPasswordViewModel by viewModel()
