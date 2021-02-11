@@ -570,6 +570,11 @@ fun View.margins(left: Int = 0, top: Int = 0, right: Int = 0, bottom: Int = 0): 
     return this
 }
 
+fun retrieveBoolean(key: String, default: Boolean = false): Boolean {
+    val sp = LoginModuleApplication.sharedPreferences
+    return sp.getBoolean(key, default)
+}
+
 
 
 
