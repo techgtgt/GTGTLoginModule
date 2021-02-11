@@ -1,6 +1,5 @@
 package com.gtgt.loginmodulelibrary.base
 
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -52,7 +51,7 @@ abstract class LoginModuleBaseActivity : AppCompatActivity(), KodeinAware {
             .requestProfile()
             .build()
 
-        var googleSignInClient = GoogleSignIn.getClient(this, gso)
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         //configure facebook login
         callbackManager = CallbackManager.Factory.create()
