@@ -150,6 +150,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
 
         regViewModel.socialLoginDone.observe(this, Observer {
             setResult(LoginModuleConstants.LOGIN_MODEL_REQUEST_CODE)
+            finish()
         })
 
         enterPasswordViewModel.loginModel.observe(this, Observer {
