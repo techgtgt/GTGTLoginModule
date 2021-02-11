@@ -18,7 +18,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.singleton
 
-class LoginModuleApplication : Application(), LifecycleObserver, KodeinAware {
+open class LoginModuleApplication : Application(), LifecycleObserver, KodeinAware {
     override val kodein: Kodein = Kodein.lazy {
         bind() from singleton {
             LoginModuleWebServicesPlatform(com.gtgt.loginmodulelibrary.BuildConfig.HOME_URL_PLATFORM).retrofit.create(

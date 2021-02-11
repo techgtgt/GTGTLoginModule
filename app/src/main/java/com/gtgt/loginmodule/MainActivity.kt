@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
         btn_login_sl.onOneClick {
             LoginModuleBaseViewModel.productName = "SUPERLIT"
             LoginModuleConstants.HEADER_PRODUCT_NAME = ""
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         btn_login_rj.onOneClick {
             LoginModuleBaseViewModel.productName = "RUMMYJACKS"
-            LoginModuleBaseActivity.productType = LoginModuleConstants.ProductName.superLit.type
+            LoginModuleBaseActivity.productType = LoginModuleConstants.ProductName.rummyJacks.type
             launchActivity<RegistrationActivity>(
                 LoginModuleConstants.LOGIN_MODEL_REQUEST_CODE
             )
