@@ -1,10 +1,12 @@
 package com.gtgt.loginmodulelibrary.retrofit
 
 import com.google.gson.JsonElement
-import com.google.gson.JsonObject
 import com.gtgt.loginmodulelibrary.base.AnyModel
 import com.gtgt.loginmodulelibrary.base.LoginModuleBaseModel
-import com.gtgt.loginmodulelibrary.loginmodule.model.*
+import com.gtgt.loginmodulelibrary.loginmodule.model.CreateUserByMobileResponse
+import com.gtgt.loginmodulelibrary.loginmodule.model.LoginModel
+import com.gtgt.loginmodulelibrary.loginmodule.model.ResendOTP
+import com.gtgt.loginmodulelibrary.loginmodule.model.SetPasswordModel
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -13,8 +15,6 @@ interface LoginModuleApiInterfacePlatform {
 
     //api's related to login
 
-    @POST("userService/createUser")
-    fun createUser(@Body data: JsonObject): Call<CreateUserResponse>
 
     @POST("userService/createUserByMobile")
     fun createUserByMobile(@Body data: JsonElement): Call<CreateUserByMobileResponse>

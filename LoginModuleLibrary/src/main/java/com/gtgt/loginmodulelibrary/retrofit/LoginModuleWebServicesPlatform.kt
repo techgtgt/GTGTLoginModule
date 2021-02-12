@@ -35,7 +35,7 @@ class LoginModuleWebServicesPlatform(baseUrl: String) {
                         }
 
                         when {
-                            original.url.toUri().path.contains("userService") -> it["token"].string
+                            original.url.toUri().path.contains("userService") -> ""
                             original.url.toUri().path.contains("createUser") -> ""
                             else -> "Token " + it["token"].string
                         }
