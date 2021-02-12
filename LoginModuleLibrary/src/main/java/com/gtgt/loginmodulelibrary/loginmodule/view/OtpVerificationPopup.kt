@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.gtgt.loginmodulelibrary.R
@@ -13,48 +14,67 @@ import com.gtgt.loginmodulelibrary.utils.*
 import kotlinx.android.synthetic.main.otp_dialog.view.*
 
 class OtpVerificationPopup(var activity: Activity) {
+
+    lateinit var otpDialogView: View
+
+
     fun showOtpVerificationDialog(
         isUserRegistered: Boolean = false,
         mobileNum: String = "",
         productType: String,
+        registerServiceCallBack: (SmsReceiver) -> Unit,
         onVerifyBtnClicked: (String, BottomSheetBehavior<FrameLayout>) -> Unit,
         onResendOtpBtnClicked: (BottomSheetBehavior<FrameLayout>, Boolean) -> Unit,
         onPreviousBtnClicked: () -> Unit
     ) {
-        val dialogView = LayoutInflater.from(activity).inflate(R.layout.otp_dialog, null)
+        otpDialogView = LayoutInflater.from(activity).inflate(R.layout.otp_dialog, null)
 
         if (productType == LoginModuleConstants.ProductName.superLit.type) {
-            loadSuperLitDialog(dialogView)
+            loadSuperLitDialog(otpDialogView)
         }
+
+        val smsReceiver = SmsReceiver {
+            otpDialogView.otp_box.setText(it)
+        }
+
+        registerServiceCallBack(smsReceiver)
 
 
         val bottomSheetOtpVerification = BottomSheetDialog(activity, R.style.SheetDialog)
         bottomSheetOtpVerification.window?.setWindowAnimations(R.style.DialogAnimation)
-        bottomSheetOtpVerification.setContentView(dialogView)
+        bottomSheetOtpVerification.setContentView(otpDialogView)
         bottomSheetOtpVerification.show()
         bottomSheetOtpVerification.setCancelable(false)
 
-        dialogView.tv_previous_otp_screen.makeTextUnderline()
-        dialogView.tv_resend_otp.makeTextUnderline()
+        otpDialogView.tv_previous_otp_screen.makeTextUnderline()
+        otpDialogView.tv_resend_otp.makeTextUnderline()
 
-        dialogView.tv_previous_otp_screen.onOneClick {
+        otpDialogView.tv_previous_otp_screen.onOneClick {
             bottomSheetOtpVerification.dismiss()
             onPreviousBtnClicked()
         }
 
 
-        dialogView.tv_entered_mob_num.text = mobileNum
+        otpDialogView.tv_entered_mob_num.text = mobileNum
 
-        dialogView.btn_verify_otp.onOneClick {
-            val otp = dialogView.otp_box.text.toString()
-            if (otp.length == 4) {
+        otpDialogView.btn_verify_otp.onOneClick {
+            val otp = otpDialogView.otp_box.text.toString()
+            checkForValidOtp(otp) {
+
                 onVerifyBtnClicked(otp, bottomSheetOtpVerification.behavior)
-            } else {
-                activity.showSnack("OTP you've entered is incorrect, please re-check")
+
+            }
+
+        }
+
+        otpDialogView.otp_box.doAfterTextChanged {
+            checkForValidOtp(it.toString()) {
+                onVerifyBtnClicked(it.toString(), bottomSheetOtpVerification.behavior)
             }
         }
 
-        dialogView.tv_resend_otp.onOneClick {
+
+        otpDialogView.tv_resend_otp.onOneClick {
             onResendOtpBtnClicked(bottomSheetOtpVerification.behavior, isUserRegistered)
         }
 
@@ -81,4 +101,17 @@ class OtpVerificationPopup(var activity: Activity) {
 
         dialogView.iv_super_lit_logo_otp_verification.visibility = View.GONE
     }
+
+
+    private fun checkForValidOtp(otp: String, isOtpValid: () -> Unit) {
+        if (otp.length == 4) {
+            isOtpValid()
+
+        } else {
+            activity.showSnack("OTP you've entered is incorrect, please re-check")
+        }
+    }
+
+
+
 }

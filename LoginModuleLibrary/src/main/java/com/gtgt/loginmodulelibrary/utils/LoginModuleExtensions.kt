@@ -19,6 +19,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.github.salomonbrys.kotson.fromJson
@@ -181,9 +182,9 @@ fun View.padding(all: Int = 0, left: Int = 0, top: Int = 0, right: Int = 0, bott
     return this
 }
 
-//fun Context.showToast(message: String) {
-//    runOnMain { Toast.makeText(this, message, Toast.LENGTH_SHORT).show() }
-//}
+fun Context.showToast(message: String) {
+    runOnMain { Toast.makeText(this, message, Toast.LENGTH_SHORT).show() }
+}
 
 fun Activity.setStatusBarColor(color: Int) {
 
@@ -534,9 +535,8 @@ fun uniqueId(applicationContext: Context) {
         Settings.Secure.ANDROID_ID
     )
 
-
     Log.e("Device_Id", unique_id)
-    putPermanentString("UNIQUE_ID", "647e4be7a0a94b3b")
+    putPermanentString("UNIQUE_ID", unique_id)
 }
 
 fun log(tag: String, message: String = "__") {

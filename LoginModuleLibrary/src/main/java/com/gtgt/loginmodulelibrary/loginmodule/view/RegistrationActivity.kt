@@ -1,5 +1,6 @@
 package com.gtgt.loginmodulelibrary.loginmodule.view
 
+import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.widget.FrameLayout
@@ -33,6 +34,8 @@ class RegistrationActivity : LoginModuleBaseActivity() {
     lateinit var enterPwdBottomSheetBehavior: BottomSheetBehavior<FrameLayout>
     lateinit var setPwdBottomSheetBehavior: BottomSheetBehavior<FrameLayout>
     lateinit var otpBottomSheetBehaviour: BottomSheetBehavior<FrameLayout>
+
+    lateinit var smsReceiver: SmsReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +86,10 @@ class RegistrationActivity : LoginModuleBaseActivity() {
                                             true,
                                             userMobileNum,
                                             productType,
+                                            {
+                                                smsReceiver = it
+                                                startSmsReceiver(smsReceiver)
+                                            },
                                             { otp, b ->
                                                 //verify btn clicked
                                                 enterPasswordViewModel.userLogin(
@@ -91,6 +98,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
                                                     true,
                                                     otp = otp
                                                 )
+                                                stopSmsReceiver(smsReceiver)
                                                 otpBottomSheetBehaviour = b
                                             }, { bottomSheetBehavior, isUserRegistered ->
                                                 otpBottomSheetBehaviour = bottomSheetBehavior
@@ -123,6 +131,10 @@ class RegistrationActivity : LoginModuleBaseActivity() {
                         false,
                         userMobileNum,
                         productType,
+                        {
+                            smsReceiver = it
+                            startSmsReceiver(smsReceiver)
+                        },
                         { otp, bottomSheet ->
                             otpBottomSheetBehaviour = bottomSheet
                             otpViewModel.verifyOtp(otp, userLoginInfo.user_unique_id, userMobileNum)
@@ -174,6 +186,10 @@ class RegistrationActivity : LoginModuleBaseActivity() {
                     true,
                     userMobileNum,
                     productType,
+                    {
+                        smsReceiver = it
+                        startSmsReceiver(smsReceiver)
+                    },
                     { otp, bottomSheet ->
                         otpBottomSheetBehaviour = bottomSheet
                         otpViewModel.verifyOtp(otp, userLoginInfo.user_unique_id, userMobileNum)
@@ -202,6 +218,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
             Log.e("verifyOtpResponse", it.toString())
             if (it.success) {
                 otpBottomSheetBehaviour.peekHeight = 0
+                stopSmsReceiver(smsReceiver)
                 SetPasswordPopup(this).showSetPwdDialog(
                     userLoginInfo.user_unique_id,
                     productType,
@@ -291,6 +308,20 @@ class RegistrationActivity : LoginModuleBaseActivity() {
 
     }
 
+    private fun startSmsReceiver(smsReceiver: SmsReceiver) {
+        val intentFilter = IntentFilter("android.provider.Telephony.SMS_RECEIVED")
+        registerReceiver(smsReceiver, intentFilter)
+        showToast("registered")
+    }
+
+    private fun stopSmsReceiver(smsReceiver: SmsReceiver) {
+        unregisterReceiver(smsReceiver)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(smsReceiver)
+    }
 
 }
 

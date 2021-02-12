@@ -1,4 +1,4 @@
-package com.gtgt.utils
+package com.gtgt.loginmodulelibrary.utils
 
 import android.content.BroadcastReceiver
 import android.content.Context
