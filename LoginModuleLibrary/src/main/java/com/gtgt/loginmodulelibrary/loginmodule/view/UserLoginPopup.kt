@@ -110,7 +110,7 @@ class UserLoginPopup(
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun loadSuperLitDialog(dialogView: View) {
         dialogView.ll_registration.background = activity.getDrawable(R.drawable.superlit_login_bg)
-        dialogView.tv_skip_login.visibility = GONE
+        dialogView.tv_skip_login.setTextColor(Color.parseColor("#b95c1f"))
         dialogView.rl_et_mob_num.background = activity.getDrawable(R.drawable.superlit_et_bg)
         dialogView.btn_go_nxt.visibility = GONE
         dialogView.et_enter_mobile_num.setCompoundDrawablesWithIntrinsicBounds(
@@ -126,25 +126,6 @@ class UserLoginPopup(
     }
 
 
-//    @SuppressLint("UseCompatLoadingForDrawables")
-//    private fun loadRummyJacksDialog(dialogView: View) {
-//        dialogView.ll_registration.background = activity.getDrawable(R.drawable.superlit_login_bg)
-//        dialogView.tv_skip_login.visibility = GONE
-//        dialogView.rl_et_mob_num.background = activity.getDrawable(R.drawable.superlit_et_bg)
-//        dialogView.btn_go_nxt.visibility = GONE
-//        dialogView.et_enter_mobile_num.setCompoundDrawablesWithIntrinsicBounds(
-//            R.drawable.ic_phone_superlit,
-//            0,
-//            0,
-//            0
-//        )
-//        dialogView.et_enter_mobile_num.setHintTextColor(Color.parseColor("#796b6b"))
-//        dialogView.btn_proceed.visibility = VISIBLE
-//        dialogView.btn_proceed_as_guest.visibility = GONE
-//        dialogView.ll_super_lit_logo.visibility = GONE
-//
-//
-//    }
 
     private fun checkSmsPermissions(onPermissionsGranted: (Boolean) -> Unit) {
         Dexter.withActivity(activity)
