@@ -28,7 +28,7 @@ open class LoginModuleApplication : Application(), LifecycleObserver, KodeinAwar
 
         bind() from singleton {
             this@LoginModuleApplication.applicationContext!!.getSharedPreferences(
-                "rummy",
+                "LoginModule",
                 Context.MODE_PRIVATE
             )
         }
@@ -50,44 +50,28 @@ open class LoginModuleApplication : Application(), LifecycleObserver, KodeinAwar
         uniqueId(appContext!!)
 
 
-        Thread.setDefaultUncaughtExceptionHandler { paramThread, paramThrowable ->
-            Thread {
-//                AppManager.sendCrash("", paramThrowable, AppManager.CrashType.OTHER)
-
-                Looper.prepare()
-                Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.app_name) + " has encountered a problem, please restart the app",
-                    Toast.LENGTH_LONG
-                ).show()
-                Looper.loop()
-//                AppManager.killApp()
-            }.start()
-            try {
-                Thread.sleep(3000) // Let the Toast display before app will get shutdown
-//                AppManager.killApp()
-            } catch (e: InterruptedException) {
-                e.printStackTrace()
-//                AppManager.killApp()
-            }
-        }
-
-//        getAdId {
-//            advertise_id = it!!
+//        Thread.setDefaultUncaughtExceptionHandler { paramThread, paramThrowable ->
+//            Thread {
+////                AppManager.sendCrash("", paramThrowable, AppManager.CrashType.OTHER)
+//
+//                Looper.prepare()
+//                Toast.makeText(
+//                    applicationContext,
+//                    applicationContext.getString(R.string.app_name) + " has encountered a problem, please restart the app",
+//                    Toast.LENGTH_LONG
+//                ).show()
+//                Looper.loop()
+////                AppManager.killApp()
+//            }.start()
+//            try {
+//                Thread.sleep(3000) // Let the Toast display before app will get shutdown
+////                AppManager.killApp()
+//            } catch (e: InterruptedException) {
+//                e.printStackTrace()
+////                AppManager.killApp()
+//            }
 //        }
 
-
-//        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener {
-//            val deviceId = it.token
-//            putString("FCM_ID", deviceId)
-//            Log.i("fcmId", deviceId)
-//        }
-
-        // Branch logging for debugging
-//        Branch.enableLogging()
-
-        // Branch object initialization
-//        Branch.getAutoInstance(this)
     }
 
     companion object {
@@ -109,17 +93,18 @@ open class LoginModuleApplication : Application(), LifecycleObserver, KodeinAwar
 
         val sharedPreferences: SharedPreferences by lazy {
             appContext!!.getSharedPreferences(
-                "rummy",
+                "LoginModule",
                 Context.MODE_PRIVATE
             )
         }
 
         val sharedPreferencesDontClear: SharedPreferences by lazy {
             appContext!!.getSharedPreferences(
-                "rummyPermanent",
+                "LoginModule",
                 Context.MODE_PRIVATE
             )
         }
+
     }
 
 

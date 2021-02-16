@@ -36,7 +36,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
     lateinit var otpBottomSheetBehaviour: BottomSheetBehavior<FrameLayout>
 
     lateinit var smsReceiver: SmsReceiver
-    var isSmsServiceRegistered = true
+    var isSmsServiceRegistered = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -312,6 +312,7 @@ class RegistrationActivity : LoginModuleBaseActivity() {
     private fun startSmsReceiver(smsReceiver: SmsReceiver) {
         val intentFilter = IntentFilter("android.provider.Telephony.SMS_RECEIVED")
         registerReceiver(smsReceiver, intentFilter)
+        isSmsServiceRegistered = true
     }
 
     private fun stopSmsReceiver(smsReceiver: SmsReceiver) {
@@ -324,7 +325,6 @@ class RegistrationActivity : LoginModuleBaseActivity() {
         if (isSmsServiceRegistered) {
             unregisterReceiver(smsReceiver)
         }
-
     }
 
 }
