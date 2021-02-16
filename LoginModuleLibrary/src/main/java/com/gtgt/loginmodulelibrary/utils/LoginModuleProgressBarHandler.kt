@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import com.gtgt.loginmodulelibrary.R
-import kotlinx.android.synthetic.main.progressbar.view.*
+import kotlinx.android.synthetic.main.login_module_progress_bar.view.*
 
 class LoginModuleProgressBarHandler(private val activity: Activity) {
     var handler: Handler? = null
@@ -33,7 +33,7 @@ class LoginModuleProgressBarHandler(private val activity: Activity) {
                     WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
                 )
 
-                view = activity.layoutInflater.inflate(R.layout.progressbar, null)
+                view = activity.layoutInflater.inflate(R.layout.login_module_progress_bar, null)
                 view.progress_bar.indeterminateTintList = ColorStateList.valueOf(
                     Color.parseColor(
                         progressBarColor
